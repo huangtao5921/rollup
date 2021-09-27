@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/huangtao5921/rollup#readme",
   "devDependencies": {
-    "rollup": "^2.57.0"
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "rollup": "^2.57.0",
+    "rollup-plugin-babel": "^4.4.0"
   }
 }

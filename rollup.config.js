@@ -1,3 +1,4 @@
+import babel from 'rollup-plugin-babel';  // 引入rollup的babel插件
 export default {
   input: 'src/main.js',
   output: {
@@ -6,4 +7,9 @@ export default {
     name: 'bundleName',         // 生成包名称
     sourcemap: true,            // 生成sourcemap文件
   },
+  plugins: [
+    babel({
+      exclude: 'node_modules/**',
+    })
+  ]
 }
