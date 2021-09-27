@@ -12,7 +12,7 @@ export default {
   input: 'src/main.js',
   output: {
     file: 'dist/bundle.cjs.js', // 输出文件位置，以及文件名称
-    format: 'cjs',              // 生成包的格式[amd | es6 | iife | umd | cjs | system]。 见：https://www.rollupjs.com/guide/big-list-of-options
+    format: 'iife',              // 生成包的格式[amd | es6 | iife | umd | cjs | system]。 见：https://www.rollupjs.com/guide/big-list-of-options
     name: 'bundleName',         // 生成包名称
     sourcemap: true,            // 生成sourcemap文件
   },
@@ -22,5 +22,6 @@ export default {
     babel({
       exclude: 'node_modules/**',
     })
-  ]
+  ],
+  external: ['lodash'],     // 不打第三方库，通过引入在script引入
 }
