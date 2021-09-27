@@ -1,0 +1,23 @@
+{
+  "name": "rollup-demo",
+  "version": "1.0.0",
+  "description": "rollup-demo",
+  "main": "rollup.config.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangtao5921/rollup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangtao5921/rollup/issues"
+  },
+  "homepage": "https://github.com/huangtao5921/rollup#readme",
+  "devDependencies": {
+    "rollup": "^2.57.0"
+  }
+}
