@@ -9,6 +9,19 @@
     alert(message);
   };
 
+  var Greeter = /** @class */ (function () {
+      function Greeter(message) {
+          this.greeting = message;
+      }
+      Greeter.prototype.greet = function () {
+          console.log('hello ts');
+      };
+      return Greeter;
+  }());
+
+  var a = new Greeter();
+  a.greet();
+
   var arr = ___default["default"].concat([1, 2, 3], 4);
 
   sayHello('hello world & lodash:' + arr);

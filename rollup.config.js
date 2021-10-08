@@ -5,6 +5,7 @@
  * '@rollup/plugin-node-resolve'：插件允许加载第三方模块
  * '@rollup/plugin-commonjs'：插件将第三方插件转换为ES6版本
 */
+import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from 'rollup-plugin-babel';  // 引入rollup的babel插件
@@ -13,10 +14,12 @@ export default {
   output: {
     file: 'dist/bundle.cjs.js', // 输出文件位置，以及文件名称
     format: 'iife',              // 生成包的格式[amd | es6 | iife | umd | cjs | system]。 见：https://www.rollupjs.com/guide/big-list-of-options
+    // format: 'umd',
     name: 'bundleName',         // 生成包名称
     sourcemap: true,            // 生成sourcemap文件
   },
   plugins: [
+    typescript(),
     resolve(),
     commonjs(),
     babel({
