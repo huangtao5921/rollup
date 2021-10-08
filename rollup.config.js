@@ -9,6 +9,8 @@ import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from 'rollup-plugin-babel';  // 引入rollup的babel插件
+import { terser } from 'rollup-plugin-terser';  // 引入rollup的babel插件
+
 export default {
   input: 'src/main.js',
   output: {
@@ -24,7 +26,8 @@ export default {
     commonjs(),
     babel({
       exclude: 'node_modules/**',
-    })
+    }),
+    terser()
   ],
   external: ['lodash'],     // 不打第三方库，通过引入在script引入
 }
