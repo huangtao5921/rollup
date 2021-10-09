@@ -9,7 +9,8 @@ import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from 'rollup-plugin-babel';  // 引入rollup的babel插件
-import { terser } from 'rollup-plugin-terser';  // 引入rollup的babel插件
+import { terser } from 'rollup-plugin-terser';  // 压缩js代码
+import postcss from 'rollup-plugin-postcss'     // 编译css文件
 
 export default {
   input: 'src/main.js',
@@ -27,7 +28,11 @@ export default {
     babel({
       exclude: 'node_modules/**',
     }),
-    terser()
+    terser(),
+    postcss({
+      plugins: [],
+      // extract: true
+    }),
   ],
   external: ['lodash'],     // 不打第三方库，通过引入在script引入
 }

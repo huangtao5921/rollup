@@ -1,6 +1,7 @@
 import sayHello from './modules/Mymoduls';
 import _ from 'lodash';
 import Greeter from './modules/Greeter';
+import './style.css';
 
 const a = new Greeter();
 a.greet();
