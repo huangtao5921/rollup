@@ -10,7 +10,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from 'rollup-plugin-babel';  // 引入rollup的babel插件
 import { terser } from 'rollup-plugin-terser';  // 压缩js代码
-import postcss from 'rollup-plugin-postcss'     // 编译css文件
+import postcss from 'rollup-plugin-postcss';     // 编译css文件
+import alias from '@rollup/plugin-alias';
+const path = require('path');
 
 export default {
   input: 'src/main.js',
@@ -32,6 +34,14 @@ export default {
     postcss({
       plugins: [],
       // extract: true
+    }),
+    alias({
+      entries: [
+        {
+          find: '@',
+          replacement: path.join(__dirname, 'src')
+        }
+      ]
     }),
   ],
   external: ['lodash'],     // 不打第三方库，通过引入在script引入

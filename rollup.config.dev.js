@@ -9,9 +9,11 @@ import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from 'rollup-plugin-babel';  // 引入rollup的babel插件
-import postcss from 'rollup-plugin-postcss'     // 编译css文件
-import serve from 'rollup-plugin-serve'     // 本地服务
-import livereload from 'rollup-plugin-livereload'     // 开启热更新
+import postcss from 'rollup-plugin-postcss';     // 编译css文件
+import serve from 'rollup-plugin-serve';     // 本地服务
+import livereload from 'rollup-plugin-livereload';     // 开启热更新
+import alias from '@rollup/plugin-alias';
+const path = require('path');
 
 export default {
   input: 'src/main.js',
@@ -32,6 +34,14 @@ export default {
     postcss({
       plugins: [],
       // extract: true
+    }),
+    alias({
+      entries: [
+        {
+          find: '@',
+          replacement: path.join(__dirname, 'src')
+        }
+      ]
     }),
     livereload(),
     serve({
